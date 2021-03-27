@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -46,18 +45,10 @@ public class Register extends Application {
 
         PasswordField confirm = new PasswordField();
         grid.add(confirm, 1, 4);
-        
-        grid.add(new Label("etmp"), 0, 6);
-        CheckBox cb1 = new CheckBox("First");
-        CheckBox cb2 = new CheckBox("Second");
-        
-        cb1.setSelected(true);
-        grid.add(cb1, 1, 6);
-        grid.add(cb2, 1, 7);
 
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
-        grid.add(buttonBox, 1, 9);
+        grid.add(buttonBox, 1, 6);
 
         Button register = new Button(Configuration.BUNDLE.getString("register.register.hint"));
         register.setOnAction(a -> {
