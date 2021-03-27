@@ -57,7 +57,7 @@ public class Visitor extends Application {
 
 	    Scene scene = new Scene(border);
 	    stage.setScene(scene);
-	    stage.setTitle("参会者");
+	    stage.setTitle(Configuration.BUNDLE.getString("register.visitor.hint"));
 	    stage.show();
 	}	
 
@@ -66,7 +66,7 @@ public class Visitor extends Application {
         hbox.setPadding(new Insets(15, 12, 15, 12));
         hbox.setSpacing(10);
         
-        Text text = new Text("参会者界面");
+        Text text = new Text(Configuration.BUNDLE.getString("register.visitor.hint"));
         hbox.getChildren().add(text);
         return hbox;
     }
@@ -79,19 +79,19 @@ public class Visitor extends Application {
         vbox.setPadding(new Insets(10)); // Set all sides to 10
         vbox.setSpacing(8);              // Gap between nodes
  
-        Text title = new Text("分论坛");
+        Text title = new Text(Configuration.BUNDLE.getString("register.subforum.hint"));
         title.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         vbox.getChildren().add(title);
         
         //此处为具体参加的分论坛名称
         Hyperlink options[] = new Hyperlink[] {
-            new Hyperlink("AAAAAAAAAA "),
-            new Hyperlink("B "),
-            new Hyperlink("C "),
-            new Hyperlink("D "),};
+            new Hyperlink("分论坛1 "),
+            new Hyperlink("分论坛2 "),
+            new Hyperlink("分论坛3 "),
+            new Hyperlink("分论坛4 "),};
         
          
-        for (int i=0; i<4; i++) {
+        for (int i=0; i<options.length; i++) {
             // Add offset to left side to indent from title
             VBox.setMargin(options[i], new Insets(0, 0, 0, 8));
             vbox.getChildren().add(options[i]);
@@ -105,19 +105,18 @@ public class Visitor extends Application {
         vbox.setPadding(new Insets(10)); // Set all sides to 10
         vbox.setSpacing(8);              // Gap between nodes
  
-        Text title = new Text("消息");
+        Text title = new Text(Configuration.BUNDLE.getString("register.message.hint"));
         title.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         vbox.getChildren().add(title);
         
         //此处为推送的消息
         Hyperlink options[] = new Hyperlink[] {
-            new Hyperlink("AAAAAAAAAAAAAAAAAAAAAAAAAA "),
-            new Hyperlink("BBBBBBBBBBBBBBBBBBBBBBBBBB "),
-            new Hyperlink("CCCCCCCCCCCCCCCCCCCCCCCCCC "),
-            new Hyperlink("D "),};
-        
+            new Hyperlink("消息1 "),
+            new Hyperlink("消息2 "),
+            new Hyperlink("消息3 "),
+            new Hyperlink("消息4 "),};
          
-        for (int i=0; i<4; i++) {
+        for (int i=0; i<options.length; i++) {
             // Add offset to left side to indent from title
             VBox.setMargin(options[i], new Insets(0, 0, 0, 18));
             vbox.getChildren().add(options[i]);
@@ -169,7 +168,7 @@ public class Visitor extends Application {
         flow.setHgap(4);
         flow.setPrefWrapLength(170); // preferred width allows for two columns
         flow.setStyle("-fx-background-color: DAE6F3;");
-        Text nickname = new Text(Configuration.BUNDLE.getString("login.account.hint"));
+        Text nickname = new Text(Configuration.BUNDLE.getString("register.nickname.hint"));
         flow.getChildren().add(nickname);
         
         return flow;
