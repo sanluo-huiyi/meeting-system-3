@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-03-27 14:41:59
+Date: 2021-03-27 15:14:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,12 +30,41 @@ CREATE TABLE `chairman` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `meeting`
+-- ----------------------------
+DROP TABLE IF EXISTS `meeting`;
+CREATE TABLE `meeting` (
+  `title` varchar(255) NOT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of meeting
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `message`
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `sub_meeting` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`content`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of message
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `participants`
 -- ----------------------------
 DROP TABLE IF EXISTS `participants`;
 CREATE TABLE `participants` (
   `id` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `sub_meeting` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -64,9 +93,25 @@ DROP TABLE IF EXISTS `sub_chairman`;
 CREATE TABLE `sub_chairman` (
   `id` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `sub_meeting` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of sub_chairman
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `sub_meeting`
+-- ----------------------------
+DROP TABLE IF EXISTS `sub_meeting`;
+CREATE TABLE `sub_meeting` (
+  `title` varchar(255) NOT NULL,
+  `chaiman` varchar(255) DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of sub_meeting
 -- ----------------------------
