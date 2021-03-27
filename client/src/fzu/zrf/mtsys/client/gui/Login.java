@@ -62,7 +62,4 @@ public class Login extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);// args is unavailable
-    }
 }
